@@ -1,0 +1,173 @@
+Started by user kavitha
+Replayed #87
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on test-machine in /builds/workspace/workspace/test-job
+[Pipeline] {
+[Pipeline] ws
+Running in /builds/workspace
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Clone the repo)
+[Pipeline] sh
++ '[' '!' -d challenges ']'
++ cd challenges
++ git pull
+Already up-to-date.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy the image)
+[Pipeline] sh
++ cd /builds/workspace/challenges/ci-cd-pipeline
++ sudo docker build -t dockerfile .
+Sending build context to Docker daemon 8.192 kB
+Step 1/5 : FROM nginx:alpine
+ ---> bef258acf10d
+Step 2/5 : RUN chmod g+rwx /var/cache/nginx/ /var/run /var/log/nginx
+ ---> Using cache
+ ---> ba75e6cc15ae
+Step 3/5 : COPY app/html /var/www/
+ ---> Using cache
+ ---> 4bdaa20ddd86
+Step 4/5 : COPY app/nginx.conf /etc/nginx/nginx.conf
+ ---> Using cache
+ ---> 2bc97d987306
+Step 5/5 : EXPOSE 8000
+ ---> Using cache
+ ---> 04dd2a657e8c
+Successfully built 04dd2a657e8c
++ sudo docker run -dp 7013:8000 dockerfile
+2bb26575ac31523e228e8d8fbda5e5601bb80be58f91ad61c48298ddad1c702e
++ sudo docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED                  STATUS                  PORTS                            NAMES
+2bb26575ac31        dockerfile          "/docker-entrypoin..."   Less than a second ago   Up Less than a second   80/tcp, 0.0.0.0:7013->8000/tcp   romantic_swartz
+7dc3b6e41728        dockerfile          "/docker-entrypoin..."   About a minute ago       Up About a minute       80/tcp, 0.0.0.0:7012->8000/tcp   determined_wozniak
+a243c5cebf81        dockerfile          "/docker-entrypoin..."   About a minute ago       Created                                                  cranky_snyder
+bded871fd532        dockerfile          "/docker-entrypoin..."   4 minutes ago            Up 4 minutes            80/tcp, 0.0.0.0:7011->8000/tcp   zealous_torvalds
+ff6b6baf6005        dockerfile          "/docker-entrypoin..."   6 minutes ago            Up 6 minutes            80/tcp, 0.0.0.0:7010->8000/tcp   infallible_knuth
+623fd741f219        dockerfile          "/docker-entrypoin..."   2 hours ago              Up 2 hours              80/tcp, 0.0.0.0:7009->8000/tcp   affectionate_saha
+e29b9c618289        dockerfile          "/docker-entrypoin..."   2 hours ago              Created                                                  kickass_blackwell
+c20c19b6ef71        dockerfile          "/docker-entrypoin..."   2 hours ago              Up 2 hours              80/tcp, 0.0.0.0:7007->8000/tcp   hungry_boyd
+e9c9518e1ff0        dockerfile          "/docker-entrypoin..."   2 hours ago              Created                                                  relaxed_volhard
+fa2ae80a26e5        dockerfile          "/docker-entrypoin..."   2 hours ago              Created                                                  musing_noyce
+1561efedb647        dockerfile          "/docker-entrypoin..."   2 hours ago              Created                                                  affectionate_yalow
+42b2d1568fe8        dockerfile          "/docker-entrypoin..."   2 hours ago              Created                                                  sad_lamport
+59809edb17cb        dockerfile          "/docker-entrypoin..."   2 hours ago              Created                                                  compassionate_heisenberg
+eb5ee8aa2f0d        dockerfile          "/docker-entrypoin..."   2 hours ago              Created                                                  ecstatic_poincare
+8db21927fd54        dockerfile          "/docker-entrypoin..."   2 hours ago              Created                                                  inspiring_sammet
+9e6b4c2f8829        dockerfile          "/docker-entrypoin..."   2 hours ago              Created                                                  stoic_blackwell
+4b35f9a502e2        dockerfile          "/docker-entrypoin..."   2 hours ago              Created                                                  eager_hawking
+5b3b21160cad        dockerfile          "/docker-entrypoin..."   3 hours ago              Created                                                  youthful_pasteur
+28c1f0bb35bc        dockerfile          "/docker-entrypoin..."   3 hours ago              Created                                                  happy_poincare
+a6b30116427d        dockerfile          "/docker-entrypoin..."   3 hours ago              Created                                                  upbeat_mahavira
+3085076bc92a        f741f6ee0897        "/docker-entrypoin..."   4 hours ago              Up 4 hours              80/tcp, 0.0.0.0:7006->8000/tcp   serene_jones
+819c92003303        f741f6ee0897        "/docker-entrypoin..."   4 hours ago              Up 4 hours              80/tcp, 0.0.0.0:7005->8000/tcp   elated_almeida
+df1b81f97ad6        0dd8b0ad4903        "/docker-entrypoin..."   8 hours ago              Created                                                  cranky_mcclintock
+ebdd7483390c        0dd8b0ad4903        "/docker-entrypoin..."   9 hours ago              Created                                                  gifted_ride
+a87f4d176e9b        0dd8b0ad4903        "/docker-entrypoin..."   3 days ago               Created                                                  admiring_poincare
+264bd446b8a0        0dd8b0ad4903        "/docker-entrypoin..."   3 days ago               Created                                                  boring_goldwasser
+bf4286f123e9        0dd8b0ad4903        "/docker-entrypoin..."   3 days ago               Created                                                  mystifying_shannon
+3bc00493182c        0dd8b0ad4903        "/docker-entrypoin..."   3 days ago               Created                                                  vigilant_morse
+049f6ef612c4        0dd8b0ad4903        "/docker-entrypoin..."   3 days ago               Created                                                  naughty_poincare
+d2243db1c436        0dd8b0ad4903        "/docker-entrypoin..."   3 days ago               Created                                                  vigilant_torvalds
+9363647c1619        0dd8b0ad4903        "/docker-entrypoin..."   4 days ago               Created                                                  modest_mcclintock
+15760a955a4b        0dd8b0ad4903        "/docker-entrypoin..."   5 days ago               Up 5 days               80/tcp, 0.0.0.0:7002->8000/tcp   jovial_jones
+e8b4f51bd52e        0dd8b0ad4903        "/docker-entrypoin..."   5 days ago               Up 5 days               80/tcp, 0.0.0.0:7001->8000/tcp   lucid_roentgen
+67eaab3d7b01        0dd8b0ad4903        "/docker-entrypoin..."   5 days ago               Created                                                  festive_swartz
+7eea6c58c1d3        0dd8b0ad4903        "/docker-entrypoin..."   5 days ago               Up 5 days               80/tcp, 0.0.0.0:7000->8000/tcp   romantic_lumiere
+10a6bcbdde65        hello-world         "/hello"                 5 days ago               Exited (0) 5 days ago                                    relaxed_varahamihira
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Push the image to docker hub)
+[Pipeline] ws
+Running in /builds/workspace/challenges/ci-cd-pipeline
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ docker build -t kavitha91/kavitha-hub .
+Sending build context to Docker daemon 8.192 kB
+Step 1/5 : FROM nginx:alpine
+ ---> bef258acf10d
+Step 2/5 : RUN chmod g+rwx /var/cache/nginx/ /var/run /var/log/nginx
+ ---> Using cache
+ ---> ba75e6cc15ae
+Step 3/5 : COPY app/html /var/www/
+ ---> Using cache
+ ---> 4bdaa20ddd86
+Step 4/5 : COPY app/nginx.conf /etc/nginx/nginx.conf
+ ---> Using cache
+ ---> 2bc97d987306
+Step 5/5 : EXPOSE 8000
+ ---> Using cache
+ ---> 04dd2a657e8c
+Successfully built 04dd2a657e8c
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withDockerRegistry
+Using the existing docker config file.$ docker login -u kavitha91 -p ******** https://registry-1.docker.io/v2/
+Login Succeeded
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ docker tag kavitha91/kavitha-hub registry-1.docker.io/kavitha91/kavitha-hub:latest
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] isUnix
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ docker push registry-1.docker.io/kavitha91/kavitha-hub:latest
+The push refers to a repository [registry-1.docker.io/kavitha91/kavitha-hub]
+4d7f39fa8047: Preparing
+8ad49b7d82fa: Preparing
+e73eb36e92eb: Preparing
+6fda88393b8b: Preparing
+a770f8eba3cb: Preparing
+318191938fd7: Preparing
+89f4d03665ce: Preparing
+67bae81de3dc: Preparing
+8d3ac3489996: Preparing
+318191938fd7: Waiting
+89f4d03665ce: Waiting
+67bae81de3dc: Waiting
+8d3ac3489996: Waiting
+e73eb36e92eb: Pushed
+8ad49b7d82fa: Pushed
+a770f8eba3cb: Pushed
+4d7f39fa8047: Pushed
+67bae81de3dc: Layer already exists
+318191938fd7: Pushed
+89f4d03665ce: Pushed
+8d3ac3489996: Pushed
+6fda88393b8b: Pushed
+latest: digest: sha256:f8a5fb16f06d5cbd30b9fb46d0e17ee1912aaa7e6117b8282054293cced5dbdf size: 2189
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withDockerRegistry
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // ws
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Clean up)
+[Pipeline] sh
++ rm -rf /builds/workspace/challenges
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // ws
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
