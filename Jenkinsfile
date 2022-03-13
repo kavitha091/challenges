@@ -9,7 +9,7 @@ ws("${workspace}"){
         then
 		git clone  git@github.com:kavitha091/challenges.git
 	else
-		cd ${LOCALREPO_VC_DIR}"
+		cd $LOCALREPO_VC_DIR
 		git pull"
 	fi
 	"""
