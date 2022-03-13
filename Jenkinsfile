@@ -34,8 +34,7 @@ ws("${workspace}"){
 	stage('Clean up'){
 	sh"""
 	rm -rf "${workspace}/challenges"
-	"""
-		
+	"""	
 	}
 }
 }
