@@ -1,4 +1,4 @@
-node('testmachine') {    
+node('test-machine') {    
 //Defined the workspace while creating the node
 def workspace="/builds/workspace/"
 def LOCALREPO_VC_DIR="challenges"
@@ -17,14 +17,14 @@ ws("${workspace}"){
 	}
 	stage('Deploy the image'){
 	sh"""
-	cd "${workspace}/kavitha091/challenges"
+	cd "${workspace}/challenges/ci-cd-pipeline"
 	sudo docker build -t dockerfile .
 	sudo docker run -dp 7005:8000 dockerfile
 	sudo docker ps -a
 	"""
 	}
 	stage('Push the image to docker hub'){
-	cd "${workspace}/Kavitha-test"
+	cd "${workspace}/challenges/ci-cd-pipeline"
 	sh"""
 	sudo  docker login
 	sudo docker build -t kavitha91/kavitha-hub .
@@ -33,7 +33,7 @@ ws("${workspace}"){
 	}
 	stage('Clean up'){
 	sh"""
-	rm -rf "${workspace}/Kavitha-test"
+	rm -rf "${workspace}/challenges"
 	"""
 		
 	}
