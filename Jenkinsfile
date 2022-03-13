@@ -29,7 +29,7 @@ ws("${workspace}"){
 	sudo  docker login
 	sudo docker build -t kavitha91/kavitha-hub .
 	sudo docker push kavitha91/kavitha-hub:latest
-	"""
+	""" 
 	}
 	stage('Clean up'){
 	sh"""
