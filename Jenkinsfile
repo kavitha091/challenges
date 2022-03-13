@@ -4,7 +4,7 @@ def workspace="/builds/workspace/"
 def LOCALREPO_VC_DIR="challenges"
 ws("${workspace}"){
 	stage('Clone the repo'){
-	sh"""
+	sh""" 
 	if [ ! -d $LOCALREPO_VC_DIR ]
         then
 		git clone  git@github.com:kavitha091/challenges.git
