@@ -2,9 +2,13 @@
 
 # Issues faced:
 
-I Installed Jenkins in my local machine. I was not able to add the webhook as  "http:localhost:8080" due to DNS issue.
+1) I Installed Jenkins in my local machine. I was not able to add the webhook as  "http:localhost:8080" due to DNS issue.
+2) Docker login was giving below error
+docker login -u --password-stdin
+Warning: failed to get default registry endpoint from daemon (Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.26/info: dial unix /var/run/docker.sock: connect: permission denied). Using system default: https://index.docker.io/v1/
+Error: Cannot perform an interactive login from a non TTY device
 
-# Solution:
+# 1. Solution:
 
 I had to install ngrok and follow the below steps:
 run ngrok, command : ngrok http 8080
@@ -23,3 +27,7 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
                                                                                                         
 ```
 Copy "b23f-103-109-146-28.ngrok.io" and replace "localhost" request will be forwarded to localhost
+
+# 2. solution
+
+I had to use dockerregistry method to login to docker hub.
