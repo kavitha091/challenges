@@ -3,7 +3,7 @@ node('test-machine') {
 def workspace="/builds/workspace"
 def LOCALREPO_VC_DIR="challenges"
 ws("${workspace}"){
-	stage('Clone the repo'){
+	stage('Clone the repo'){ 
 	sh"""
 	if [ ! -d $LOCALREPO_VC_DIR ]
         then
