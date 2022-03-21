@@ -20,7 +20,7 @@ ws("${workspace}"){
 	sh"""
 	cd "${workspace}/challenges/ci-cd-pipeline"
 	sudo docker build -t dockerfile .
-	sudo docker run -dp 7036:8000 dockerfile
+	sudo docker run -dp 7038:8000 dockerfile
 	sudo docker ps -a
 	"""
 	}
