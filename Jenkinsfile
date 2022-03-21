@@ -24,7 +24,7 @@ ws("${workspace}"){
 	sudo docker ps -a
 	"""
 	}
-	
+	 
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerid')
 	}
