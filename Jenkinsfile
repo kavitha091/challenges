@@ -1,5 +1,5 @@
 node('test-machine') {      
-//Defined the workspace while creating the node
+//Defined the workspace while creating the node 
 def workspace="/builds/workspace"
 def LOCALREPO_VC_DIR="challenges"
 ws("${workspace}"){
